@@ -581,6 +581,20 @@ nav a:hover {
     margin-top: 250px;
 }
 
+#credits {
+    margin-top: auto; 
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+}
+
+#credits strong {
+    font-weight: bold;
+}
+
+
 @media (max-width: 768px) {
 
     nav a {
