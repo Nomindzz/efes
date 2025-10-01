@@ -630,6 +630,13 @@ nav a:hover {
         border-radius: 5px; 
     }
 
+    #wilkommen {
+        font-size: 24px; 
+        font-family: "Roboto", sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+
     
     #headerbild {
         width: 30px;
@@ -691,6 +698,7 @@ nav a:hover {
         width: 100%;
         height: auto; /* Passt die Höhe automatisch an */
         max-width: 300px; /* Setzt eine maximale Breite von 300 Pixeln */
+        
     }
 
     .haken {
