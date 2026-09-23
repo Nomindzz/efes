@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const animatedImage = document.querySelector(".animated-image");
+    if (!animatedImage) return; // Gibt es nur auf der Startseite
 
     function triggerAnimation(isFirstLoad = false) {
         animatedImage.classList.remove("active", "first-load"); // Entferne vorherige Klassen
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // **Animation mit längerer Dauer beim Laden**
     triggerAnimation(true);  
 
-    window.addEventListener("scroll", checkPosition);
+    window.addEventListener("scroll", checkPosition, { passive: true });
 });
 
 
@@ -82,12 +83,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    window.addEventListener("scroll", checkPosition);
+    window.addEventListener("scroll", checkPosition, { passive: true });
     checkPosition();
 });
 
 
 async function fetchInstagramPosts() {
+    const feed = document.getElementById("insta-feed");
+    if (!feed) return; // Gibt es nur auf der Startseite
+
     let username = "efesgrillschwerte";
     let url = `https://www.instagram.com/${username}/embed`;
 
@@ -99,9 +103,11 @@ async function fetchInstagramPosts() {
     iframe.width = "100%";
     iframe.height = "600px";
     iframe.style.border = "none";
+    iframe.title = "Instagram-Feed von Efes Grill Schwerte";
+    iframe.loading = "lazy";
 
     wrapper.appendChild(iframe);
-    document.getElementById("insta-feed").appendChild(wrapper);
+    feed.appendChild(wrapper);
 }
 
 fetchInstagramPosts();
@@ -129,10 +135,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Smooth Page Transition bei Klick auf Links
     function handlePageTransition(event) {
-        event.preventDefault(); // Verhindert direktes Springen
         const href = this.getAttribute("href");
 
-        if (href.startsWith("#")) return; // Falls es ein interner Anker-Link ist, ignorieren
+        // Anker-, Telefon-, Mail- und externe Links ganz normal öffnen
+        if (!href || href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:") ||
+            this.target === "_blank" || /^https?:/.test(href) ||
+            event.ctrlKey || event.metaKey || event.shiftKey) return;
+
+        event.preventDefault(); // Verhindert direktes Springen
 
         document.body.classList.add("fade-out"); // Fade-Out starten
 
@@ -153,3 +163,24 @@ window.addEventListener("pageshow", function () {
     document.body.style.overflow = "auto";
 });
 
+
+// Logo oben links: sanft nach oben scrollen
+const headerLink = document.getElementById("headerlink");
+if (headerLink) {
+    headerLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+
+// Heutigen Tag bei den Öffnungszeiten hervorheben (Zeitzone Schwerte)
+(function () {
+    const tage = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    const kurz = new Intl.DateTimeFormat("en-US", { weekday: "short", timeZone: "Europe/Berlin" }).format(new Date());
+    const zeile = document.querySelector('.tag[data-tag="' + tage[kurz] + '"]');
+    if (zeile) {
+        zeile.classList.add("heute");
+        zeile.setAttribute("aria-current", "date");
+    }
+})();

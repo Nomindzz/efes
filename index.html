@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Borhan Alia">
+    <meta name="description" content="Efes Grill Schwerte – Döner, Dürüm, Lahmacun und vegetarische Gerichte. Hagener Str. 6, 58239 Schwerte. Mo–Sa 11:00–21:00 Uhr.">
+    <meta name="theme-color" content="#333333">
     <title>Efes Grill Schwerte</title>
     <link rel="icon" type="image/png" href="efeslogo.png">
     <link rel="stylesheet" href="styles.css">
@@ -14,12 +16,13 @@
 <header>
     <nav>
         <a href="#ueber-uns">Über uns</a>
-        <a href="/speisekarte.html">Speisekarte</a>
+        <a href="speisekarte.html">Speisekarte</a>
+        <a href="#oeffnungszeiten"><span class="nav-lang">Öffnungszeiten</span><span class="nav-kurz">Zeiten</span></a>
         <a href="#instagram">Instagram</a>
     </nav>
 </header>
 
-<img id="headerbild" src="efeslogo.png">
+<a href="#" id="headerlink" aria-label="Nach oben"><img id="headerbild" src="efeslogo.png" alt="Efes Grill Logo"></a>
 
 
 
@@ -101,19 +104,19 @@
 
 
 
-<div class="ganzerInfocontainer">
+<div class="ganzerInfocontainer" id="oeffnungszeiten">
     <div class="info-container">
         <!-- Öffnungszeiten -->
         <div class="map">
             <h2>UNSERE ÖFFNUNGSZEITEN</h2>
             <div class="zeiten">
-                <div class="tag"><span>Montag</span><span>11:00 - 21:00</span></div>
-                <div class="tag"><span>Dienstag</span><span>11:00 - 21:00</span></div>
-                <div class="tag"><span>Mittwoch</span><span>11:00 - 21:00</span></div>
-                <div class="tag"><span>Donnerstag</span><span>11:00 - 21:00</span></div>
-                <div class="tag"><span>Freitag</span><span>11:00 - 21:00</span></div>
-                <div class="tag"><span>Samstag</span><span>11:00 - 21:00</span></div>
-                <div class="tag geschlossen"><span>Sonntag</span><span>Geschlossen</span></div>
+                <div class="tag" data-tag="1"><span>Montag</span><span>11:00 - 21:00</span></div>
+                <div class="tag" data-tag="2"><span>Dienstag</span><span>11:00 - 21:00</span></div>
+                <div class="tag" data-tag="3"><span>Mittwoch</span><span>11:00 - 21:00</span></div>
+                <div class="tag" data-tag="4"><span>Donnerstag</span><span>11:00 - 21:00</span></div>
+                <div class="tag" data-tag="5"><span>Freitag</span><span>11:00 - 21:00</span></div>
+                <div class="tag" data-tag="6"><span>Samstag</span><span>11:00 - 21:00</span></div>
+                <div class="tag geschlossen" data-tag="0"><span>Sonntag</span><span>Geschlossen</span></div>
                 <div class="tag"><span>Feiertage</span><span>14:00 - 20:00</span></div>
             </div>
         </div>
@@ -123,6 +126,7 @@
             <h2>HIER FINDET IHR UNS</h2>
             <iframe 
                 id="karte" 
+                title="Karte: Efes Grill, Hagener Str. 6, Schwerte"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.949899237677!2d7.566026077284501!3d51.44071397179828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b915f82199138d%3A0x337c3cc6acad9dd3!2sEfes%20Grill!5e0!3m2!1sde!2sde!4v1741011309940!5m2!1sde!2sde" 
                 width="400" 
                 height="300" 
@@ -130,7 +134,8 @@
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
-            <footer>Hagener Str. 6, 58239 Schwerte</footer>
+            <footer><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Efes+Grill,+Hagener+Str.+6,+58239+Schwerte" target="_blank" rel="noopener">Hagener Str. 6, 58239 Schwerte</a></footer>
+            <a class="route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Efes+Grill,+Hagener+Str.+6,+58239+Schwerte" target="_blank" rel="noopener">Route planen</a>
         </div>
     </div>
 </div>
@@ -156,6 +161,8 @@
         <div id="insta-feed">
             
         </div>
+
+        <a class="insta-button" href="https://www.instagram.com/efesgrillschwerte/" target="_blank" rel="noopener">@efesgrillschwerte auf Instagram öffnen</a>
     </div>
 
 </section>
@@ -178,8 +185,8 @@
         Inhaber: Muammer Aydin<br><br>
 
         <strong>Kontakt:</strong><br>
-        Telefon: 02304 239223<br>
-        E-Mail: efesgrill-schwerte@gmx.de<br><br>
+        Telefon: <a href="tel:+492304239223">02304 239223</a><br>
+        E-Mail: <a href="mailto:efesgrill-schwerte@gmx.de">efesgrill-schwerte@gmx.de</a><br><br>
 
         <strong>Gewerbeanmeldung:</strong><br>
         Erfolgt bei der Stadt Schwerte.<br><br>
@@ -210,17 +217,12 @@
     Cloudflare ist gemäß dem EU-U.S. Data Privacy Framework zertifiziert, wodurch ein angemessenes Datenschutzniveau gewährleistet wird.<br><br>
     
     Weiterführende Informationen finden Sie in der Datenschutzerklärung von Cloudflare:  
-    https://www.cloudflare.com/privacypolicy/
+    <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">https://www.cloudflare.com/privacypolicy/</a>
     </p>
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="script.js"></script>
-
-
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 
 
