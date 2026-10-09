@@ -140,6 +140,11 @@ h2 {
     border-radius: 5px;
 }
 
+/* Donnerstags-Hinweis oben in der Speisekarte */
+.angebot.hinweis {
+    margin: 0 0 30px;
+}
+
 .angebot strong {
     display: block;
     font-size: 1.1em;
